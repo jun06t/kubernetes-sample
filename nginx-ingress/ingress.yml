@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+spec:
+  rules:
+  - host: nginx.minikube.dev
+    http:
+      paths:
+      - backend:
+          serviceName: hello-world-svc
+          servicePort: 8080
