@@ -5,8 +5,8 @@ metadata:
 spec:
   clusterIP: None
   ports:
-     -  port: 8080
-        protocol: TCP
-        targetPort: 80
+    - port: 8080
+      protocol: TCP
+      targetPort: 80
   selector:
     app: hello-world
