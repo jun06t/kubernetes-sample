@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: headless-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+        - image: "strm/helloworld-http"
+          imagePullPolicy: Always
+          name: hello-world-container
+          ports:
+            - containerPort: 80
