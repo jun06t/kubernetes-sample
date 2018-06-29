@@ -4,9 +4,5 @@ metadata:
   name: user-svc
 spec:
   clusterIP: None
-  ports:
-    - port: 10000
-      protocol: TCP
-      targetPort: 10000
   selector:
     app: user-service
