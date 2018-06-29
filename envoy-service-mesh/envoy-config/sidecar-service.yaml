@@ -33,6 +33,12 @@ static_resources:
     connect_timeout: 0.25s
     type: static
     lb_policy: round_robin
+    health_checks:
+    - timeout: 5s
+      interval: 10s
+      unhealthy_threshold: 2
+      healthy_threshold: 2
+      tcp_health_check: {}
     hosts:
     - socket_address:
         address: 127.0.0.1
