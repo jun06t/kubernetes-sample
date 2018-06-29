@@ -1,0 +1,36 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      volumes:
+        - name: envoy
+          configMap:
+            name: envoy-config
+      containers:
+        - name: user
+          image: "jun06t/grpc-backend"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+        - name: envoy
+          image: envoyproxy/envoy:latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: envoy
+              mountPath: /etc/envoy
+          command:
+            - "/usr/local/bin/envoy"
+          args:
+            - "--config-path /etc/envoy/sidecar-service.yaml"
+          ports:
+            - containerPort: 10000
+              name: envoy-sidecar
+            - containerPort: 10001
+              name: envoy-admin
