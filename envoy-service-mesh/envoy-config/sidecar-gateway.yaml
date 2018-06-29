@@ -48,7 +48,7 @@ static_resources:
               - match:
                   prefix: "/gateway.AliveService"
                 route:
-                  cluster: alive 
+                  cluster: alive
               - match:
                   prefix: "/gateway.UserService"
                 route:
@@ -89,7 +89,7 @@ static_resources:
     hosts:
     - socket_address:
         address: alive-svc
-        port_value: 8081
+        port_value: 10000
   - name: user
     http2_protocol_options: {}
     connect_timeout: 0.25s
@@ -104,7 +104,7 @@ static_resources:
     hosts:
     - socket_address:
         address: user-svc
-        port_value: 8081
+        port_value: 10000
 admin:
   access_log_path: /dev/null
   address:
