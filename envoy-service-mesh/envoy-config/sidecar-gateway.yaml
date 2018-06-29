@@ -21,6 +21,10 @@ static_resources:
                   prefix: "/"
                 route:
                   cluster: local_service
+          access_log:
+          - name: envoy.file_access_log
+            config:
+              path: "/dev/stdout"
           http_filters:
           - name: envoy.router
             config: {}
@@ -42,13 +46,17 @@ static_resources:
               - "*"
               routes:
               - match:
-                  prefix: "/alive"
+                  prefix: "/gateway.AliveService"
                 route:
                   cluster: alive 
               - match:
-                  prefix: "/user"
+                  prefix: "/gateway.UserService"
                 route:
                   cluster: user
+          access_log:
+          - name: envoy.file_access_log
+            config:
+              path: "/dev/stdout"
           http_filters:
           - name: envoy.router
             config: {}

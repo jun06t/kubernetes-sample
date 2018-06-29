@@ -21,6 +21,10 @@ static_resources:
                   prefix: "/"
                 route:
                   cluster: local_service
+          access_log:
+          - name: envoy.file_access_log
+            config:
+              path: "/dev/stdout"
           http_filters:
           - name: envoy.router
             config: {}

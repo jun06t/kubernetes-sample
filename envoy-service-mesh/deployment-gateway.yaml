@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gateway-deployment
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
