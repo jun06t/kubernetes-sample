@@ -4,5 +4,10 @@ metadata:
   name: headless-svc
 spec:
   clusterIP: None
+  ports:
+  - name: headless
+    port: 12345
+    protocol: TCP
+    targetPort: 12345
   selector:
     app: hello-world

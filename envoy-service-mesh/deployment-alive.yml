@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: user-service-deployment
+  name: alive-service-deployment
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
-        app: user-service
+        app: alive-service
     spec:
       volumes:
         - name: envoy
           configMap:
             name: envoy-config
       containers:
-        - name: user
+        - name: alive
           image: "jun06t/grpc-backend"
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
         - name: envoy
