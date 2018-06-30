@@ -5,6 +5,9 @@ metadata:
 spec:
   clusterIP: None
   ports:
+  # Actually, no port is needed.
+  # but set it because of the following bug.
+  # https://github.com/kubernetes/kubernetes/issues/55158
   - name: headless
     port: 12345
     protocol: TCP
