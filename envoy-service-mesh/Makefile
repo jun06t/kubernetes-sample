@@ -14,6 +14,7 @@ apply-services:
 	kubectl apply -f service-alive.yml
 	kubectl apply -f service-alive-admin.yml
 	kubectl apply -f service-user.yml
+	kubectl apply -f service-user-admin.yml
 	kubectl apply -f service-gateway.yml
 
 destroy:
@@ -22,6 +23,7 @@ destroy:
 	kubectl delete deployment user-service-deployment
 	kubectl delete service gateway-svc
 	kubectl delete service user-svc
+	kubectl delete service user-admin-svc
 	kubectl delete service alive-admin-svc
 	kubectl delete service alive-svc
 	kubectl delete configmap envoy-config
