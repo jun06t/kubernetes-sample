@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-admin-svc
+spec:
+  type: NodePort
+  ports:
+  - name: admin
+    port: 3001
+    protocol: TCP
+    targetPort: 10001
+  selector:
+    app: user-service
+
