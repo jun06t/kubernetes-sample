@@ -17,9 +17,9 @@ spec:
           image: jun06t/show-cpus
           resources:
             requests:
-              memory: "1024Mi"
-              cpu: "500m"
+              memory: "128Mi"
+              cpu: "100m"
             limits:
-              memory: "2048Mi"
-              cpu: "1000m"
+              memory: "256Mi"
+              cpu: "200m"
 
