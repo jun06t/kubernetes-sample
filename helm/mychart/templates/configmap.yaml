@@ -8,3 +8,7 @@ data:
   drink: {{ .drink | quote }}
   food: {{ .food | quote }}
   {{- end }}
+  toppings: |-
+  {{- range .Values.pizzaToppings }}
+  - {{ . | title | quote }}
+  {{- end }}
