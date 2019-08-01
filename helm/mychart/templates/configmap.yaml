@@ -9,6 +9,6 @@ data:
   food: {{ .food | quote }}
   {{- end }}
   toppings: |-
-  {{- range .Values.pizzaToppings }}
-  - {{ . | title | quote }}
+  {{- range $index, $topping := .Values.pizzaToppings }}
+    {{ $index }}: {{ $topping }}
   {{- end }}
