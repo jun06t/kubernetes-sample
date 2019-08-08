@@ -1,12 +1,15 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: nginx
+  name: nginx-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: nginx.minikube.dev
+  - host: hello-world.info
     http:
       paths:
+#      - path: /*
       - backend:
           serviceName: hello-world-svc
           servicePort: 8080
