@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: server
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       labels:
@@ -19,6 +19,8 @@ spec:
         ports:
           - containerPort: 8080
         env:
+        - name: MAX_CONNECTION_AGE
+          value: "30"
         - name: GRPC_VERBOSITY
           value: "DEBUG"
         - name: GRPC_GO_LOG_SEVERITY_LEVEL
