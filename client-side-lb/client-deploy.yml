@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  selector:
+    matchLabels:
+      app: client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - image: "jun06t/client-side-lb:client"
+        imagePullPolicy: Always
+        name: client
+        env:
+        - name: ENDPOINT
+          value: "headless-svc:8080"
+
