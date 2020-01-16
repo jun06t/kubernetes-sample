@@ -6,15 +6,26 @@ spec:
   selector:
     matchLabels:
       app: server
-  replicas: 3
+  replicas: 5
   template:
     metadata:
       labels:
         app: server
     spec:
       containers:
-        - image: "jun06t/client-side-lb:server"
-          imagePullPolicy: Always
-          name: server
-          ports:
-            - containerPort: 8080
+      - image: "jun06t/client-side-lb:server"
+        imagePullPolicy: Always
+        name: server
+        ports:
+          - containerPort: 8080
+        env:
+        - name: GRPC_VERBOSITY
+          value: "DEBUG"
+        - name: GRPC_GO_LOG_SEVERITY_LEVEL
+          value: "info"
+        - name: GRPC_GO_LOG_VERBOSITY_LEVEL
+          value: "2"
+        - name: GRPC_TRACE
+          value: "all"
+#        - name: GODEBUG
+#          value: "http2debug=2"

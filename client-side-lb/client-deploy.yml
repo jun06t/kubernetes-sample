@@ -19,4 +19,14 @@ spec:
         env:
         - name: ENDPOINT
           value: "headless-svc:8080"
+        - name: GRPC_VERBOSITY
+          value: "DEBUG"
+        - name: GRPC_GO_LOG_SEVERITY_LEVEL
+          value: "info"
+        - name: GRPC_GO_LOG_VERBOSITY_LEVEL
+          value: "2"
+        - name: GRPC_TRACE
+          value: "all"
+#        - name: GODEBUG
+#          value: "http2debug=2"
 
